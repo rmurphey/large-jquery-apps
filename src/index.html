@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>myApp : Home</title>
+</head>
+<body data-page="home">
+	<script src="/js/jquery/require-jquery-1.4.2.src"></script>
+	<script>
+		require({ 
+			baseUrl : '/js/myApp',
+			paths : {
+				jquery : "../jquery"
+			}
+		});
+		
+		require([ "base" ]);
+	</script>
+</body>
+</html>
