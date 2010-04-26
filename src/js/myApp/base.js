@@ -19,6 +19,13 @@ myApp.bootstrap = function() {
 };
 
 // load general dependencies, then figure out what page we're on and start it up
-require([ "jquery/inheritance", "jquery/templating", "jquery/pubsub", "components/Messaging" ], function() {
+require([ 
+	"jquery/inheritance", 
+	"jquery/templating", 
+	"jquery/pubsub", 
+	"mustache/mustache", 
+	"components/Messaging",
+	"components/Storage"
+], function() {
 	$(myApp.bootstrap);
 });

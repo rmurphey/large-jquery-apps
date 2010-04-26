@@ -15,6 +15,10 @@
 		.error {
 			background-color:red;
 		}
+		.remove {
+			font-size:80%;
+			cursor:pointer;
+		}
 	</style>
 </head>
 <body data-page="home">
@@ -25,12 +29,12 @@
 		<input id="search_box" type="text">
 	</section>
 	
-	<section>
+	<!-- <section>
 		<header>
 			<h2>Saved Searches</h2>
 		</header>
 		<ul id="saved_searches"></ul>
-	</section>
+	</section> -->
 	
 	<section>
 		<header>
@@ -45,7 +49,8 @@
 		require({ 
 			baseUrl : '/js/myApp',
 			paths : {
-				jquery : "../jquery"
+				jquery : "../jquery",
+				mustache : "../mustache"
 			}
 		});
 		
