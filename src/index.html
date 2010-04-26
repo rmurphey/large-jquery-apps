@@ -3,9 +3,44 @@
 <head>
 	<meta charset="utf-8">
 	<title>myApp : Home</title>
+	<style type="text/css" media="screen">
+		body {
+			font-family: Helvetica;
+		}
+		.message {
+			padding:10px;
+			background-color:black;
+			font-weight:bold;
+		}
+		.error {
+			background-color:red;
+		}
+	</style>
 </head>
 <body data-page="home">
-	<script src="/js/jquery/require-jquery-1.4.2.src"></script>
+	<h1>Search thing</h1>
+	
+	<section>
+		<label for="search_box">Enter search term</label>
+		<input id="search_box" type="text">
+	</section>
+	
+	<section>
+		<header>
+			<h2>Saved Searches</h2>
+		</header>
+		<ul id="saved_searches"></ul>
+	</section>
+	
+	<section>
+		<header>
+			<h2>Search Results</h2>
+		</header>
+		<ul id="search_results"></ul>
+	</section>
+	
+	
+	<script src="/js/jquery/require-jquery-1.4.2.js"></script>
 	<script>
 		require({ 
 			baseUrl : '/js/myApp',

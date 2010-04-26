@@ -1,9 +1,12 @@
 require([
-	"components/searchBox",
-	"components/savedSearches",
-	"components/searchResults"
+	"components/services/News",
+	"components/SearchBox",
+	"components/SavedSearches",
+	"components/SearchResults"
 ], function() {
-	new myApp.SearchResults($('#search_results'), {});
-	new myApp.SavedSearches($('#saved_searches'), {});
-	new myApp.SearchBox($('#search_box'), {});
+	console.log('this callback should be second');
+	// new myApp.NewsService();
+	// new myApp.SearchResults($('#search_results'), {});
+	// new myApp.SavedSearches($('#saved_searches'), {});
+	// new myApp.SearchBox($('#search_box'), {});
 });
