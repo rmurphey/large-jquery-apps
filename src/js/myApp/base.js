@@ -17,6 +17,7 @@ myApp.bootstrap = function() {
 			break;
 	}
 	
+	// start up services required for all pages
 	new myApp.Messaging();
 };
 
