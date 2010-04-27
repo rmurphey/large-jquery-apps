@@ -1,16 +1,11 @@
-myApp.SavedSearches = Class.extend({
+myApp.widgets.Saved = Class.extend({
 	itemTemplate : '<li data-term="{{term}}">{{term}} <span class="remove">remove</span></li>',
 	cookie : 'savedSearches',
 	
 	init : function(el) {
 		this.el = el;
 
-		// create a new store that will hold saved searches;
-		// the store must provide three methods: read, save, and remove.
-		// the read method must return an array. the save and remove
-		// methods should allow for the saving and removing of individual
-		// search terms
-		this.store = new myApp.Storage('searches');
+		this.store = new myApp.common.Storage('searches');
 		
 		// when a term is searched for, save it
 		$.subscribe('/search/term', $.proxy(this._saveSearch, this));

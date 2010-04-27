@@ -1,13 +1,16 @@
 require([
 	"common/Storage",
-	"components/SearchBox",
-	"components/SearchResults",
+	
+	"widgets/SearchInput",
+	"widgets/Results",
 	
 	"services/_base",
-	"services/Web"
+	"services/Web",
+	"services/News"
 ], function() {
-	new myApp.SearchResults($('#search_results'), {});
-	new myApp.SearchBox($('#search_box'), {});
+	new myApp.widgets.Results($('#search_results'));
+	new myApp.widgets.SearchInput($('#search_box'));
 
 	new myApp.services.Web();
+	// new myApp.services.News();
 });

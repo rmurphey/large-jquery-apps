@@ -1,4 +1,4 @@
-myApp.Storage = Class.extend({
+myApp.common.Storage = Class.extend({
 	init : function(storeName) {
 		this.storeName = storeName;
 	},

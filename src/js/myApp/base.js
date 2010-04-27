@@ -1,4 +1,9 @@
-var myApp = {}; // create a namespace for us
+// create a namespace for us
+var myApp = {
+	common : {},
+	services : {},
+	widgets : {}
+}; 
 
 myApp.bootstrap = function() {
 	var page = $('body').attr('data-page');
@@ -18,7 +23,7 @@ myApp.bootstrap = function() {
 	}
 	
 	// start up services required for all pages
-	new myApp.Messaging();
+	new myApp.common.Messaging();
 };
 
 // load general dependencies, then figure out what page we're on and start it up

@@ -1,4 +1,5 @@
 myApp.services.News = myApp.services._base.extend({
+	description : 'News',
 	service : 'search.news',
 	baseUrl : '/data/news.json',
 	dataType : 'json',

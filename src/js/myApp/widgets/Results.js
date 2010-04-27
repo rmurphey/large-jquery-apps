@@ -1,4 +1,4 @@
-myApp.SearchResults = Class.extend({
+myApp.widgets.Results = Class.extend({
 	itemTemplate : '<li class="{{type}}">' +
 		'<h3><a href="{{url}}">{{title}}</a></h3>' +
 		'{{#abstract}}<p class="abstract">{{abstract}}</p>{{/abstract}}' +

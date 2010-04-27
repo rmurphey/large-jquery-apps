@@ -1,4 +1,4 @@
-myApp.SearchBox = Class.extend({
+myApp.widgets.SearchInput = Class.extend({
 	options : {},
 	term : '',
 	

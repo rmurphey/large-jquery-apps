@@ -1,4 +1,4 @@
-myApp.Messaging = Class.extend({
+myApp.common.Messaging = Class.extend({
 	init : function() {
 		this.el = $('<div class="message"/>').prependTo('body').hide();
 		

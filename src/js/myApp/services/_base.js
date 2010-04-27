@@ -1,38 +1,49 @@
-myApp.services = {};
-
 myApp.services._base = Class.extend({
 	baseUrl : 'http://query.yahooapis.com/v1/public/yql?callback=?',
 	fields : [ 'title', 'abstract', 'url' ],
 	dataType : 'jsonp',
+	format : 'json',
 	service : '',
+	enabled : true,
 
 	init : function(opts) {
-		$.subscribe('/search/term', $.proxy(this._doSearch, this));
-		
 		this.ajaxOptions = {
 			url : this.baseUrl,
 			dataType : this.dataType,
 			success : this._handleResponse,
 			context : this
 		};
+
+		$.subscribe('/search/term', $.proxy(this._doSearch, this));
+		$.subscribe('/service/' + this.description + '/toggle', $.proxy(this._toggle, this));
+		$.publish('/service/add', [ this.description ]);
+	},
+	
+	_toggle : function(enabled) {
+		this.enabled = enabled;
 	},
 	
 	_buildQuery : function(term) {
-		var query = 'select ' + 
-					this.fields.join(',') + 
-					' from ' + 
-					this.service +
-					' where query="' + term + '"';
-		return { q : query, format : 'json' };
+		if (!this.service) { throw('No YQL service defined for request.'); }
+		
+		return 'select ' + 
+			this.fields.join(',') + 
+			' from ' + 
+			this.service +
+			' where query="' + term + '"';
 	},
 	
 	_doSearch : function(term) {
-		var config = this._getAjaxConfig(term);
-		$.ajax(config);
+		if (!this.enabled) { return; }
+		$.ajax(this._getAjaxConfig(term));
 	},
 	
 	_getAjaxConfig : function(term) {
-		return $.extend({}, this.ajaxOptions, { data : this._buildQuery(term) });
+		return $.extend(
+			{}, 
+			this.ajaxOptions, 
+			{ data : { q : this._buildQuery(term), format : this.format } }
+		);
 	},
 	
 	_handleResponse : function(resp) {
