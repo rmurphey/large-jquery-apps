@@ -1,4 +1,5 @@
 myApp.services._base = Class.extend({
+	description : '',
 	baseUrl : 'http://query.yahooapis.com/v1/public/yql?callback=?',
 	fields : [ 'title', 'abstract', 'url' ],
 	dataType : 'jsonp',
@@ -49,7 +50,7 @@ myApp.services._base = Class.extend({
 	
 	_handleResponse : function(resp) {
 		var results = this._filterResults( this._normalizeResults(resp.query.results.result) );
-		$.publish('/search/results', [ results ]);
+		$.publish('/search/results', [ results, this.description ]);
 	},
 	
 	_normalizeResults : function(results) {
