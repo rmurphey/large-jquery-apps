@@ -1,17 +1,14 @@
 require([
 	"components/SearchBox",
-	// "components/SavedSearches",
 	"components/SearchResults"
 ], function() {
 	new myApp.SearchResults($('#search_results'), {});
-	// new myApp.SavedSearches($('#saved_searches'), {});
 	new myApp.SearchBox($('#search_box'), {});
 });
 
 require([
-	"components/SearchService" // ,
-	// "components/services/News"
+	"components/services/_base",
+	"components/services/Web"
 ], function() {
-	new myApp.SearchService();
-	// new myApp.NewsService();
+	new myApp.services.Web();
 });

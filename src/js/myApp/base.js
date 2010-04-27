@@ -16,6 +16,8 @@ myApp.bootstrap = function() {
 			require([ "pages/login" ]);
 			break;
 	}
+	
+	new myApp.Messaging();
 };
 
 // load general dependencies, then figure out what page we're on and start it up

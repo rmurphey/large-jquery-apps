@@ -1,5 +1,5 @@
 myApp.SearchResults = Class.extend({
-	itemTemplate : '<li>' +
+	itemTemplate : '<li class="{{type}}">' +
 		'<h3><a href="{{url}}">{{title}}</a></h3>' +
 		'{{#abstract}}<p class="abstract">{{abstract}}</p>{{/abstract}}' +
 	'</li>',
@@ -16,9 +16,11 @@ myApp.SearchResults = Class.extend({
 	},
 	
 	_showResults : function(results) {
-		var html = '', template = this.itemTemplate;
+		var html = '', 
+			template = this.itemTemplate;
 		
 		$.each(results, function(i, r) {
+			r.type = r.type || '';
 			html += Mustache.to_html(template, r);
 		});
 		

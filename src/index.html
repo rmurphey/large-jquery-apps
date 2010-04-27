@@ -11,6 +11,7 @@
 			padding:10px;
 			background-color:black;
 			font-weight:bold;
+			color:white;
 		}
 		.error {
 			background-color:red;
@@ -29,13 +30,6 @@
 		<input id="search_box" type="text">
 	</section>
 	
-	<!-- <section>
-		<header>
-			<h2>Saved Searches</h2>
-		</header>
-		<ul id="saved_searches"></ul>
-	</section> -->
-	
 	<section>
 		<header>
 			<h2>Search Results</h2>
@@ -46,8 +40,12 @@
 	
 	<script src="/js/jquery/require-jquery-1.4.2.js"></script>
 	<script>
-		require({ 
+		require({
+			// root-relative url to application files
 			baseUrl : '/js/myApp',
+			
+			// we don't want library stuff in our application dir
+			// so we provide guidance on where it can be found
 			paths : {
 				jquery : "../jquery",
 				mustache : "../mustache"

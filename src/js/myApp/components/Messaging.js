@@ -2,8 +2,8 @@ myApp.Messaging = Class.extend({
 	init : function() {
 		this.el = $('<div class="message"/>').prependTo('body').hide();
 		
-		$.subscribe('/message/error', $.proxy(this._showError));
-		$.subscribe('/message/notification', $.proxy(this._showMessage));
+		$.subscribe('/message/error', $.proxy(this._showError, this));
+		$.subscribe('/message/notification', $.proxy(this._showMessage, this));
 	},
 	
 	_showError : function(error, msg) {

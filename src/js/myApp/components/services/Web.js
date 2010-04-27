@@ -1,12 +1,12 @@
-myApp.services.News = myApp.services._base.extend({
-	service : 'search.news',
+myApp.services.Web = myApp.services._base.extend({
+	service : 'search.web',
 	baseUrl : '/data/news.json',
 	dataType : 'json',
 	
 	_filterResults : function(results) {
 		$.each(results, function(i, r) {
-			r.title = 'News: ' + r.title;
-			r.type = "news";
+			r.title = 'Web: ' + r.title;
+			r.type = "web";
 		});
 		return results;
 	}
