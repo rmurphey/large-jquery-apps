@@ -22,8 +22,7 @@ myApp.bootstrap = function() {
 			break;
 	}
 	
-	// start up services required for all pages
-	new myApp.common.Messaging();
+	// new myApp.common.Messaging();
 };
 
 // load general dependencies, then figure out what page we're on and start it up

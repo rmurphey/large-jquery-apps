@@ -17,6 +17,7 @@ myApp.services._base = Class.extend({
 		$.subscribe('/search/term', $.proxy(this._doSearch, this));
 		$.subscribe('/service/' + this.description + '/toggle', $.proxy(this._toggle, this));
 		$.publish('/service/add', [ this.description ]);
+		$.publish('/message/notification', [ 'Service ' + this.description + ' added' ]);
 	},
 	
 	_toggle : function(enabled) {

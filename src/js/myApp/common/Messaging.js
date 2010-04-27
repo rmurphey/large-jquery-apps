@@ -1,29 +1,33 @@
 myApp.common.Messaging = Class.extend({
+	animDuration : 500,
+	hideDelay : 1500,
+	
 	init : function() {
 		this.el = $('<div class="message"/>').prependTo('body').hide();
-		
-		$.subscribe('/message/error', $.proxy(this._showError, this));
 		$.subscribe('/message/notification', $.proxy(this._showMessage, this));
 	},
 	
-	_showError : function(error, msg) {
-		this._showMessage(msg + ' (' + error + ')');
-		this.el.addClass('error');
+	_showMessage : function(msg) {
+		var hide = $.proxy(this._hideMessage, this);
+		
+		this.el.append('<p>' + msg + '</p>');
+		
+		if (!this.el.is(':visible')) {
+			this.el.slideDown(this.animDuration, $.proxy(function() {
+				this.showTimeout = setTimeout(hide, this.hideDelay);
+			}, this));
+		} else {
+			clearTimeout(this.showTimeout);
+			this.showTimeout = setTimeout(hide, this.hideDelay);
+		}
 	},
 	
-	_showMessage : function(msg) {
-		this.el
-			.html(msg)
-			.slideDown(500, $.proxy(function() {
-				setTimeout($.proxy(function() { 
-					this.el.slideUp(500); 
-					this._cleanup();
-				}, this), 1500);
-			}, this));
+	_hideMessage : function() {
+		this.el.slideUp(this.animDuration); 
+		this._cleanup();
 	},
 	
 	_cleanup : function() {
-		this.el.removeClass('error');
 		this.el.empty();
 	}
 });
