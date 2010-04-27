@@ -26,8 +26,8 @@ require([
 	"jquery/templating", 
 	"jquery/pubsub", 
 	"mustache/mustache", 
-	"components/Messaging",
-	"components/Storage"
+	
+	"common/Messaging"
 ], function() {
 	$(myApp.bootstrap);
 });

@@ -1,4 +1,5 @@
 require([
+	"common/Storage",
 	"components/SearchBox",
 	"components/SearchResults"
 ], function() {
@@ -7,8 +8,8 @@ require([
 });
 
 require([
-	"components/services/_base",
-	"components/services/Web"
+	"services/_base",
+	"services/Web"
 ], function() {
 	new myApp.services.Web();
 });
