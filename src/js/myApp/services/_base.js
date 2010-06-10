@@ -1,5 +1,5 @@
 require.def('services/_base', [], function() {
-	return Class.extend({
+	return {
 		description : '',
 		baseUrl : 'http://query.yahooapis.com/v1/public/yql?callback=?',
 		fields : [ 'title', 'abstract', 'url' ],
@@ -65,5 +65,5 @@ require.def('services/_base', [], function() {
 			// before it's broadcast
 			return results;
 		}
-	});
+	};
 });

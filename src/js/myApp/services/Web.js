@@ -1,8 +1,7 @@
 require.def('services/Web', [ 'services/_base' ], function(_base) {
-	return _base.extend({
+	var web = $.extend(_base, {
 		description : 'Web',
 		service : 'search.web',
-		// baseUrl : '/data/news.json',
 		fields : [ 'title', 'url' ],
 
 		_filterResults : function(results) {
@@ -13,4 +12,6 @@ require.def('services/Web', [ 'services/_base' ], function(_base) {
 			return results;
 		}
 	});
+	
+	web.init();
 });
