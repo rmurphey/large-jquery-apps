@@ -9,16 +9,13 @@ require([
 	"common/Messaging"
 ], function() {
 	$(document).ready(function() {
-		var page = $('body').attr('data-page');
+		var page = $('body').attr('data-page'), 
+			pages = {
+				home : 'pages/home',
+				login : 'pages/login'
+			},
+			config = pages[page];
 
-		switch (page) {
-			case "home" : 
-				require([ "pages/home" ]);
-				break;
-
-			case "login" : 
-				require([ "pages/login" ]);
-				break;
-		}
+		config && require([ config ]);
 	});
 });
