@@ -11,8 +11,7 @@ require([
 	$(document).ready(function() {
 		var page = $('body').attr('data-page'), 
 			pages = {
-				home : 'pages/home',
-				login : 'pages/login'
+				home : 'pages/home'
 			},
 			config = pages[page];
 
