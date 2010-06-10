@@ -1,16 +1,13 @@
-require([
-	"common/Storage",
-	
-	"widgets/SearchInput",
-	"widgets/Results",
-	
-	"services/_base",
-	"services/Web",
-	"services/News"
-], function() {
-	new myApp.widgets.Results($('#search_results'));
-	new myApp.widgets.SearchInput($('#search_box'));
-
-	new myApp.services.Web();
-	// new myApp.services.News();
-});
+require.def(
+	'pages/home', 
+	[ "widgets/SearchInput", "widgets/Results", "services/Web" ], 
+	function(SearchInput, Results, WebService) {
+		return {
+			results : new Results($('#search_results')),
+			searchInput : new SearchInput($('#search_box')),
+			services : [
+				new WebService()
+			]
+		};
+	}
+);
