@@ -9,11 +9,10 @@ require([
 	"common/Messaging"
 ], function() {
 	$(document).ready(function() {
-		var page = $('body').attr('data-page'), 
-			pages = {
-				home : 'pages/home'
+		var pages = {
+				'home' : 'pages/home'
 			},
-			config = pages[page];
+			config = pages[$('body').attr('data-page')];
 
 		config && require([ config ]);
 	});
