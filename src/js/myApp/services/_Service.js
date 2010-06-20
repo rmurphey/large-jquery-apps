@@ -1,4 +1,4 @@
-require.def('services/_base', {
+require.def('services/_Service', {
 	description : '',
 	baseUrl : 'http://query.yahooapis.com/v1/public/yql?callback=?',
 	fields : [ 'title', 'abstract', 'url' ],
@@ -11,8 +11,7 @@ require.def('services/_base', {
 		this.ajaxOptions = {
 			url : this.baseUrl,
 			dataType : this.dataType,
-			success : this._handleResponse,
-			context : this
+			success : $.proxy(this._handleResponse, this)
 		};
 
 		$.subscribe('/search/term', $.proxy(this._doSearch, this));
@@ -37,7 +36,8 @@ require.def('services/_base', {
 
 	_doSearch : function(term) {
 		if (!this.enabled) { return; }
-		$.ajax(this._getAjaxConfig(term));
+		var config = this._getAjaxConfig(term);
+		$.ajax(config);
 	},
 
 	_getAjaxConfig : function(term) {

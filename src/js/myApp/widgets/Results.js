@@ -5,7 +5,7 @@ require.def('widgets/Results', [], function() {
 			'{{#abstract}}<p class="abstract">{{abstract}}</p>{{/abstract}}' +
 		'</li>',
 
-		init : function(el, opts) {
+		init : function(el) {
 			this.el = el;
 
 			$.subscribe('/search/term', $.proxy(this._clear, this));

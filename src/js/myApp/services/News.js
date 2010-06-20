@@ -1,5 +1,5 @@
-require.def('services/News', [ 'services/_base' ], function(_base) {
-	var news = $.extend(_base, {
+require.def('services/News', [ 'services/_Service' ], function(_Service) {
+	var news = $.extend(_Service, {
 		description : 'News',
 		service : 'search.news',
 		dataType : 'jsonp',

@@ -1,5 +1,5 @@
-require.def('services/Web', [ 'services/_base' ], function(_base) {
-	var web = $.extend(_base, {
+require.def('services/Web', [ 'services/_Service' ], function(_Service) {
+	var web = $.extend(_Service, {
 		description : 'Web',
 		service : 'search.web',
 		fields : [ 'title', 'url' ],
