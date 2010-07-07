@@ -1,6 +1,7 @@
 require.def('services/_Service', {
 	description : '',
 	baseUrl : 'http://query.yahooapis.com/v1/public/yql?callback=?',
+	// baseUrl : '/data/news.json',
 	fields : [ 'title', 'abstract', 'url' ],
 	dataType : 'jsonp',
 	format : 'json',
@@ -38,6 +39,7 @@ require.def('services/_Service', {
 		if (!this.enabled) { return; }
 		var config = this._getAjaxConfig(term);
 		$.ajax(config);
+		
 	},
 
 	_getAjaxConfig : function(term) {
