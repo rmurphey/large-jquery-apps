@@ -1,5 +1,5 @@
 require([ 
-	// external stuff
+	external stuff
 	"jquery/inheritance", 
 	"jquery/templating", 
 	"jquery/pubsub", 
